@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-la*^kt%-et6k^1q3is3=e37u8#kg+p3%^yis!7(qf#77f+wd)o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.replit.dev', 'https://*.repl.co']
 
 
 # Application definition
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'chat',
     'tenants',
-    'fead'
+    'feed'
 ]
 
 AUTH_USER_MODEL = "accounts.User"
@@ -87,7 +89,7 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 DATABASES = {
-    "default": env.db()
+    "default": env.db(default='sqlite:///db.sqlite3')
 }
 
 
