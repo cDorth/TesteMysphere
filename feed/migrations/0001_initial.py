@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('criado_em', models.DateField(auto_now_add=True)),
                 ('tenant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='tenants.tenant')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments_authored', to=settings.AUTH_USER_MODEL)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='fead.post')),
+                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='feed.post')),
             ],
         ),
         migrations.CreateModel(
@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                 ('reaction_id', models.AutoField(primary_key=True, serialize=False, unique=True)),
                 ('tipo', models.CharField(max_length=50)),
                 ('criado_em', models.DateField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reactions', to='fead.comment')),
+                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reactions', to='feed.comment')),
                 ('tenant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reactions', to='tenants.tenant')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='reactions_authored', to=settings.AUTH_USER_MODEL)),
             ],
